@@ -19,3 +19,8 @@ def test_fix_phone_num_formatting():
   assert fix_phone_num("555-442-9876") == '(555) 442 9876'
   assert fix_phone_num("(321) 654 3333") == '(321) 654 3333'
 
+def test_fix_phone_num_non_digits():
+  with pytest.raises(ValueError):
+    fix_phone_num("334dfdee45")
+  with pytest.raises(ValueError):
+    fix_phone_num("abcdefghij")
